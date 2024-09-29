@@ -1,0 +1,54 @@
+package S.M.S;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class Main {
+    public static void main(String[] args) {
+        Teacher thato = new Teacher(1,"Thato",500);
+        Teacher kgethi = new Teacher(2,"Kgethi",700);
+        Teacher dina = new Teacher(3,"Dina",600);
+
+        List<Teacher>teacherList = new ArrayList<>();
+        teacherList.add(thato);
+        teacherList.add(kgethi);
+        teacherList.add(dina);
+
+
+
+        Student thola = new Student(1,"Thola",4);
+        Student kgahli = new Student(2,"Kgahli",12);
+        Student hlogi = new Student(3,"Hlogi",5);
+        List<Student>studentList = new ArrayList<>();
+
+        studentList.add(thola);
+        studentList.add(hlogi);
+        studentList.add(kgahli);
+
+        School ghs = new School(teacherList,studentList);
+
+        Teacher koli = new Teacher(6,"Koli",900);
+
+        ghs.addTeacher(koli);
+
+        thola.payFees(5000);
+        kgahli.payFees(6000);
+        System.out.println("GHS has earned R" + ghs.getTotalMoneyEarned());
+
+        System.out.println("-------Making SCHOOL PAY SALARY-----");
+        thato.receiveSalary(thato.getSalary());
+        System.out.println("GHS has spent for salary to" + thato.getName()
+                +" and now has R" + ghs.getTotalMoneyEarned());
+
+        dina.receiveSalary(dina.getSalary());
+        System.out.println("GHS has spent for salary to" + dina.getName()
+                +" and now has R" + ghs.getTotalMoneyEarned());
+
+        System.out.println(kgahli);
+
+        kgethi.receiveSalary((kgethi.getSalary()));
+
+        System.out.println(kgethi);
+
+    }
+}
