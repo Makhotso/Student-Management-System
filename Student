@@ -1,0 +1,114 @@
+package S.M.S;
+
+
+
+/*
+ * Responsible for keeping records of the student information, fee, name, fees paid, report, message to parent*/
+public class Student {
+    private int id;
+    private String name;
+    private int grade;
+    private  int feesPaid;
+    private int feesTotal;
+
+    /**
+     * To create a new student by initializing
+     * Fees for every student is R10,000.00 per year
+     * Fees paid initially is 0.
+     * @param id id for the student. unique.
+     * @param name name of the student.
+     * @param grade grade of the student.
+     */
+
+    public Student (int id, String name, int grade) {
+        this.feesPaid=0;
+        this.feesTotal=10000;
+        this.id=id;
+        this.name=name;
+        this.grade=grade;
+    }
+
+    //Do not alter student's name and id
+
+    /**
+     * Used to update student's grade
+     * @param grade new grade of the student
+     */
+
+    public void setGrade (int grade) {
+        this.grade=grade;
+    }
+
+    /**
+     * Keep adding the fee's to the feesPaid field.
+     * Add the fee's to the fee's paid.
+     * The school is going to receive the funds.
+     * @param fees the fees that the student pays
+     */
+    public void payFees (int fees){
+        feesPaid+=fees;
+        School.updateTotalMoneyEarned(feesPaid);
+    }
+
+    /**
+     *
+     * @return id of the student.
+     */
+
+    public int getId() {
+        return id;
+    }
+
+    /**
+     *
+     * @return name of the student.
+     */
+    public String getName() {
+        return name;
+    }
+
+    /**
+     *
+     * @return the grade of the student.
+     */
+
+    public int getGrade() {
+        return grade;
+    }
+
+    /**
+     *
+     * @return feesPaid by the student.
+     */
+
+    public int getFeesPaid() {
+        return feesPaid;
+    }
+
+    /**
+     *
+     * @return feesTotal of the student.
+     */
+
+    public int getFeesTotal() {
+        return feesTotal;
+    }
+
+    /**
+     *
+     * @return the remaining fees.
+     */
+    public int getRemainingFees(){
+    return feesTotal-feesPaid;
+}
+
+@Override
+public String toString(){
+    return "Student's name : "+name+
+            " Total fees pais so far R" + feesPaid;
+    }
+}
+
+
+
+
